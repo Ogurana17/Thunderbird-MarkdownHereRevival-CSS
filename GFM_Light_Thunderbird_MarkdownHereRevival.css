@@ -1,0 +1,444 @@
+/* ------------------------------
+previewUrl: https://sindresorhus.com/github-markdown-css/
+cssUrl: https://sindresorhus.com/github-markdown-css/github-markdown.css
+
+## 作成手順
+
+1. cssUrlからCSSを取得。
+2. `-ms`, `-moz`, `-webkit`のプレフィックスのついた要素を削除
+3. `.xxx`等のid指定の要素を削除
+4. `.markdown-body`を`body`に変更
+5. `media (prefers-color-scheme: light)`の内容を代入（直書き）
+6. `media (prefers-color-scheme: light)`を削除
+7. `media (prefers-color-scheme: dark)`を削除
+8. 保存
+9. Minify:Selectionで1行にする
+10. MarkdownHereRivivalに貼り付け
+------------------------------*/
+
+body {
+  margin: 0;
+  color: #24292f;
+  background-color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, Helvetica, Arial,
+    sans-serif, apple color emoji, segoe ui emoji;
+  font-size: 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+body details,
+body figcaption,
+body figure {
+  display: block;
+}
+body summary {
+  display: list-item;
+}
+body [hidden] {
+  display: none !important;
+}
+body a {
+  background-color: transparent;
+  color: #0969da;
+  text-decoration: none;
+}
+body a:active,
+body a:hover {
+  outline-width: 0;
+}
+body abbr[title] {
+  border-bottom: none;
+  text-decoration: underline dotted;
+}
+body b,
+body strong {
+  font-weight: 600;
+}
+body dfn {
+  font-style: italic;
+}
+body h1 {
+  margin: 0.67em 0;
+  font-weight: 600;
+  padding-bottom: 0.3em;
+  font-size: 2em;
+  border-bottom: 1px solid hsla(210, 18%, 87%, 1);
+}
+body mark {
+  background-color: #fff8c5;
+  color: var(--color-text-primary);
+}
+body small {
+  font-size: 90%;
+}
+body sub,
+body sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+body sub {
+  bottom: -0.25em;
+}
+body sup {
+  top: -0.5em;
+}
+body img {
+  border-style: none;
+  max-width: 100%;
+  box-sizing: content-box;
+  background-color: #ffffff;
+}
+body code,
+body kbd,
+body pre,
+body samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+body figure {
+  margin: 1em 40px;
+}
+body hr {
+  box-sizing: content-box;
+  overflow: hidden;
+  background: 0 0;
+  border-bottom: 1px solid hsla(210, 18%, 87%, 1);
+  height: 0.25em;
+  padding: 0;
+  margin: 24px 0;
+  background-color: #d0d7de;
+  border: 0;
+}
+body input {
+  font: inherit;
+  margin: 0;
+  overflow: visible;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+body [type="button"],
+body [type="reset"],
+body [type="checkbox"],
+body [type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+body [type="search"] {
+  outline-offset: -2px;
+}
+body a:hover {
+  text-decoration: underline;
+}
+body hr::before {
+  display: table;
+  content: "";
+}
+body hr::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+body table {
+  color: #24292f;
+  border-spacing: 0;
+  border-collapse: collapse;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: auto;
+}
+body td,
+body th {
+  padding: 0;
+}
+body details summary {
+  cursor: pointer;
+}
+body details:not([open]) > *:not(summary) {
+  display: none !important;
+}
+body kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font: 11px ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+    Liberation Mono, monospace;
+  line-height: 10px;
+  color: #24292f;
+  vertical-align: middle;
+  background-color: #f6f8fa;
+  border: solid 1px rgba(175, 184, 193, 0.2);
+  border-bottom-color: rgba(175, 184, 193, 0.2);
+  border-radius: 6px;
+  box-shadow: inset 0 -1px 0 rgba(175, 184, 193, 0.2);
+}
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6 {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+body h2 {
+  font-weight: 600;
+  padding-bottom: 0.3em;
+  font-size: 1.5em;
+  border-bottom: 1px solid hsla(210, 18%, 87%, 1);
+}
+body h3 {
+  font-weight: 600;
+  font-size: 1.25em;
+}
+body h4 {
+  font-weight: 600;
+  font-size: 1em;
+}
+body h5 {
+  font-weight: 600;
+  font-size: 0.875em;
+}
+body h6 {
+  font-weight: 600;
+  font-size: 0.85em;
+  color: #57606a;
+}
+body p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+body blockquote {
+  margin: 0;
+  padding: 0 1em;
+  color: #57606a;
+  border-left: 0.25em solid #d0d7de;
+}
+body ul,
+body ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 2em;
+}
+body ol ol,
+body ul ol {
+  list-style-type: lower-roman;
+}
+body ul ul ol,
+body ul ol ol,
+body ol ul ol,
+body ol ol ol {
+  list-style-type: lower-alpha;
+}
+body dd {
+  margin-left: 0;
+}
+body tt,
+body code {
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+    Liberation Mono, monospace;
+  font-size: 12px;
+  color: #24292f;
+}
+body pre {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+    Liberation Mono, monospace;
+  font-size: 12px;
+  word-wrap: normal;
+}
+body ::placeholder {
+  color: #6e7781;
+  opacity: 1;
+}
+body [data-catalyst] {
+  display: block;
+}
+body g-emoji {
+  font-family: apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-size: 1em;
+  font-style: normal !important;
+  font-weight: 400;
+  line-height: 1;
+  vertical-align: -0.075em;
+}
+body g-emoji img {
+  width: 1em;
+  height: 1em;
+}
+body::before {
+  display: table;
+  content: "";
+}
+body::after {
+  display: table;
+  clear: both;
+  content: "";
+}
+body > *:first-child {
+  margin-top: 0 !important;
+}
+body > *:last-child {
+  margin-bottom: 0 !important;
+}
+body a:not([href]) {
+  color: inherit;
+  text-decoration: none;
+}
+body p,
+body blockquote,
+body ul,
+body ol,
+body dl,
+body table,
+body pre,
+body details {
+  margin-top: 0;
+  margin-bottom: 16px;
+}
+body blockquote > :first-child {
+  margin-top: 0;
+}
+body blockquote > :last-child {
+  margin-bottom: 0;
+}
+body sup > a::before {
+  content: "[";
+}
+body sup > a::after {
+  content: "]";
+}
+body h1 tt,
+body h1 code,
+body h2 tt,
+body h2 code,
+body h3 tt,
+body h3 code,
+body h4 tt,
+body h4 code,
+body h5 tt,
+body h5 code,
+body h6 tt,
+body h6 code {
+  padding: 0 0.2em;
+  font-size: inherit;
+}
+body ul.no-list,
+body ol.no-list {
+  padding: 0;
+  list-style-type: none;
+}
+body ol[type="1"] {
+  list-style-type: decimal;
+}
+body ol[type="a"] {
+  list-style-type: lower-alpha;
+}
+body ol[type="i"] {
+  list-style-type: lower-roman;
+}
+body div > ol:not([type]) {
+  list-style-type: decimal;
+}
+body ul ul,
+body ul ol,
+body ol ol,
+body ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+body li > p {
+  margin-top: 16px;
+}
+body li + li {
+  margin-top: 0.25em;
+}
+body dl {
+  padding: 0;
+}
+body dl dt {
+  padding: 0;
+  margin-top: 16px;
+  font-size: 1em;
+  font-style: italic;
+  font-weight: 600;
+}
+body dl dd {
+  padding: 0 16px;
+  margin-bottom: 16px;
+}
+body table th {
+  font-weight: 600;
+}
+body table th,
+body table td {
+  padding: 6px 13px;
+  border: 1px solid #d0d7de;
+}
+body table tr {
+  background-color: #ffffff;
+  border-top: 1px solid hsla(210, 18%, 87%, 1);
+}
+body table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}
+body table img {
+  background-color: transparent;
+}
+body img[align="right"] {
+  padding-left: 20px;
+}
+body img[align="left"] {
+  padding-right: 20px;
+}
+body code,
+body tt {
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(175, 184, 193, 0.2);
+  border-radius: 6px;
+}
+body code br,
+body tt br {
+  display: none;
+}
+body del code {
+  text-decoration: inherit;
+}
+body pre code {
+  font-size: 100%;
+}
+body pre > code {
+  padding: 0;
+  margin: 0;
+  word-break: normal;
+  white-space: pre;
+  background: 0 0;
+  border: 0;
+}
+body pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 6px;
+}
+body pre code,
+body pre tt {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
