@@ -1,6 +1,6 @@
 # Thunderbird-MarkdownHereRevival-CSS
 
-<img width="1048" alt="スクリーンショット 2022-12-14 17 44 26" src="https://user-images.githubusercontent.com/36149909/207548427-eb1d8675-7fe1-44c0-84be-1304230d7682.png">
+![S9l20zFQQFj4lBmRjBnS1671007994-1671008019](https://user-images.githubusercontent.com/36149909/207550537-d10e16a6-9a32-440c-8947-f1d49a2a5f78.gif)
 
 
 Thunderbirdの拡張機能である「MarkdownHereRevival」に記述する用のCSS。GithubのCSSをゴニョゴニョしてます。
