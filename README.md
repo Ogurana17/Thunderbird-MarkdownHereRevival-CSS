@@ -5,6 +5,12 @@ Thunderbirdの拡張機能である「MarkdownHereRevival」に記述する用�
 previewUrl: https://sindresorhus.com/github-markdown-css/
 cssUrl: https://sindresorhus.com/github-markdown-css/github-markdown.css
 
+## 導入手順
+
+1. `GFM_Light_Thunderbird_MarkdownHereRevival.css`をダウンロード
+2. Minify:Selectionで1行にする
+3. MarkdownHereRivivalに貼り付け
+
 ## 作成手順
 
 VisualStudioCodeで編集しています。
@@ -17,5 +23,11 @@ VisualStudioCodeで編集しています。
 6. `media (prefers-color-scheme: light)`を削除
 7. `media (prefers-color-scheme: dark)`を削除
 8. 保存
-9. Minify:Selectionで1行にする
-10. MarkdownHereRivivalに貼り付け
+
+## 失敗談（そのままCSSを利用できない理由）
+
+- @mediaが機能しないメーラーが多い→テーマによる切り替え不可能
+- DarkThemeは受けが悪いので標準にはできない→LightThemeを標準に
+- `id`, `class`, `VendorPrefix`は使用しない→削除
+- `markdown-body`という名前で使用されない→`body`に変更
+- markdownHereRivival上で記述できる文字数制限がある(7,543文字は保存されなかったが7,073文字は保存された)→Minify
