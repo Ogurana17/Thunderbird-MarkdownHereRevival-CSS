@@ -1,0 +1,2 @@
+# Thunderbird-MarkdownHereRevival-CSS
+Thunderbirdの拡張機能である「MarkdownHereRevival」に記述する用のCSS。GithubのCSSをゴニョゴニョしてます。
