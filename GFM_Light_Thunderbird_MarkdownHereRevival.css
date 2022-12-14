@@ -11,7 +11,8 @@ cssUrl: https://sindresorhus.com/github-markdown-css/github-markdown.css
 5. `media (prefers-color-scheme: light)`の内容を代入（直書き）
 6. `media (prefers-color-scheme: light)`を削除
 7. `media (prefers-color-scheme: dark)`を削除
-8. 保存
+8. `body table`, `body code`に`color: #24292f;`を追加
+9. 保存
 ------------------------------*/
 
 body {
