@@ -2,7 +2,7 @@
 
 Thunderbirdの拡張機能である「MarkdownHereRevival」に記述する用のCSS。GithubのCSSをゴニョゴニョしてます。
 
-previewUrl: https://sindresorhus.com/github-markdown-css/
+previewUrl: https://sindresorhus.com/github-markdown-css/  
 cssUrl: https://sindresorhus.com/github-markdown-css/github-markdown.css
 
 ## 導入手順
