@@ -1,6 +1,6 @@
 # Thunderbird-MarkdownHereRevival-CSS
 
-[test.pdf](https://github.com/Ogurana17/Thunderbird-MarkdownHereRevival-CSS/files/10225891/test.pdf)
+![test](https://user-images.githubusercontent.com/36149909/207547821-e380e3d0-75f8-4132-b72c-79421603ec90.svg)
 
 Thunderbirdの拡張機能である「MarkdownHereRevival」に記述する用のCSS。GithubのCSSをゴニョゴニョしてます。
 
